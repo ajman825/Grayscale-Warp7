@@ -1,0 +1,16 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.login {
+	h1 a {
+		// edit to client logo if necessary
+		width: 320px;
+		height: 200px;
+		background: url(/assets/images/logo-grayscale.png);
+	}
+}

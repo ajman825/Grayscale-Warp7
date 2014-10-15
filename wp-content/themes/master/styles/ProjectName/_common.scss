@@ -1,0 +1,78 @@
+@mixin animation($para) {
+	-webkit-animation: $para;
+	animation: $para;
+}
+ 
+@mixin breakpoint($device) {
+	@if ($mobileFirst) {
+		$tablet: "(min-width: 481px)";
+		$desktop: "(min-width: 769px)";
+ 
+		@if $device == tablet {
+			@media #{$tablet} { @content; }
+		}
+		@else if $device == mobile {
+			@media #{$mobile} { @content; }
+		}
+	}
+	@else {
+		$tablet: "(max-width: 767px)";
+		$mobile: "(max-width: 480px)";
+ 
+		@if $device == tablet {
+			@media #{$tablet} { @content; }
+		}
+		@else if $device == mobile {
+			@media #{$mobile} { @content; }
+		}
+	}
+}
+ 
+@mixin column($cCount, $gap, $cWidth: "auto") {
+	-webkit-columns: $cWidth $cCount;
+	-moz-columns: $cWidth $cCount;
+	columns: $cWidth $cCount;
+	-webkit-column-gap: $gap;
+	-moz-column-gap: $gap;
+	column-gap: $gap;
+}
+ 
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content; 
+	}
+	@keyframes #{$name} {
+		@content;
+	} 
+}
+ 
+@mixin linear-gradient($start, $end, $angle: 180deg) {
+	// background: -webkit-linear-gradient($start, $end);
+	// background: -moz-linear-gradient($start, $end);
+	// background: -o-linear-gradient($start, $end);
+	background: linear-gradient($angle, $start, $end);
+}
+ 
+@mixin multipleStates() {
+	&:hover, &:focus, &:active {
+		@content;
+	}
+}
+ 
+@mixin round($size) {
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+}
+ 
+@mixin transform($action) {
+	-webkit-transform: $action;
+	-ms-transform: $action;
+	transform: $action;
+}
+ 
+@mixin transition($duration, $timing: ease) {
+	// IE10+
+	-webkit-transition: all $duration;
+	transition: all $duration;
+}
