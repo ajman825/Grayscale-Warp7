@@ -4,7 +4,7 @@ Grayscale-Warp7
 Default overwrite files for better workflow.
 
 # Notes
-To enable posts' column view, edit _posts.php
+To enable posts' column view, edit _posts.php, line 10:
 > $colcount = is_home() || is_archive() ? $this['config']->get('multicolumns', 1) : 1;
 
 # Change Log
