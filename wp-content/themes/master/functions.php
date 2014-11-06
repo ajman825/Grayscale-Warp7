@@ -13,6 +13,18 @@ if (version_compare(PHP_VERSION, '5.3', '>=')) {
 	require(__DIR__.'/warp.php');
 }
 
+// make default text widget support php
+function execute_php($html){
+	if (strpos($html, "<" . "?php") !== false) {
+		ob_start();
+		eval("?".">".$html);
+		$html=ob_get_contents();
+		ob_end_clean();
+	}
+	return $html;
+}
+add_filter('widget_text', 'execute_php', 100);
+
 
 /* CUSTOM LOGIN */
 function login_scripts() {
