@@ -11,8 +11,8 @@
 		@if $device == tablet {
 			@media #{$tablet} { @content; }
 		}
-		@else if $device == mobile {
-			@media #{$mobile} { @content; }
+		@else if $device == desktop {
+			@media #{$desktop} { @content; }
 		}
 	}
 	@else {
