@@ -47,9 +47,6 @@
 }
  
 @mixin linear-gradient($start, $end, $angle: 180deg) {
-	// background: -webkit-linear-gradient($start, $end);
-	// background: -moz-linear-gradient($start, $end);
-	// background: -o-linear-gradient($start, $end);
 	background: linear-gradient($angle, $start, $end);
 }
  
