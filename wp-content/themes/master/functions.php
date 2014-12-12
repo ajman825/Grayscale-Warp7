@@ -33,14 +33,14 @@ function login_scripts() {
 add_action('login_head', 'login_scripts');
  
 function login_logo_url() {
-	// Change to client's info if necessary
+	// change to client's info if necessary
 	// return get_bloginfo('url');
 	return 'http://grayscale.com.hk';
 }
 add_filter('login_headerurl', 'login_logo_url');
 
 function login_logo_title() {
-	// Change to client's info if necessary
+	// change to client's info if necessary
 	// return get_bloginfo('name');
 	return 'Grayscale Limited Web Design Hong Kong';
 }

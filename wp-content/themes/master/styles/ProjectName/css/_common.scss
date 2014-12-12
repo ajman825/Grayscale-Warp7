@@ -1,3 +1,8 @@
+// SETTINGS
+$mobileFirst: true;
+$baseSize: 16px;
+
+// BASIC MIXINS
 @mixin animation($para) {
 	-webkit-animation: $para;
 	animation: $para;
@@ -5,10 +10,14 @@
  
 @mixin breakpoint($device) {
 	@if ($mobileFirst) {
-		$tablet: "(min-width: 481px)";
-		$desktop: "(min-width: 769px)";
+		$mobile: "(min-width: 480px)";
+		$tablet: "(min-width: 768px)";
+		$desktop: "(min-width: 960px)";
  
-		@if $device == tablet {
+		 @if $device == mobile {
+		 	@media #{$mobile} { @content; }
+		 }
+		@else if $device == tablet {
 			@media #{$tablet} { @content; }
 		}
 		@else if $device == desktop {
@@ -69,6 +78,21 @@
 	:-ms-input-placeholder {
 		@content;
 	}
+}
+
+@mixin rem($property, $values) {
+	$rem: ();
+
+	@each $value in $values {
+		@if $value == 0 or $value == auto {
+			$rem: append($rem, $value);
+		}
+		@else {
+			$rem: append($rem, ($value / $baseSize + rem));
+		}
+	}
+
+	#{$property}: $rem;
 }
 
 @mixin round($size) {
