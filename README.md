@@ -13,8 +13,11 @@ To enable posts' column view, edit _posts.php, line 10:
 - Added .scss-lint.yml as code styleguide
 - Defaults are set to promote mobile first development
 - Start initiation to use rem as size units
+- Imported to BitBucket
 
 15 Oct 2014
 - Initial commit with file structure
 - Base _common.scss
 - Added functions.php for Grayscale branding on login page
+
+NO HI!
