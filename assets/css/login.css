@@ -9,7 +9,7 @@ html {
 .login h1 a {
   width: 320px;
   height: 200px;
-  background: url(/assets/images/logo-grayscale.png);
+  background: url("/assets/images/logo-grayscale.png");
 }
 
 /*# sourceMappingURL=login.css.map */

@@ -1,70 +1,68 @@
 // SETTINGS
-$mobileFirst: true;
-$baseSize: 16px;
+$mobile-first: true;
+$base-font-size: 14px;
 
 // BASIC MIXINS
 @mixin animation($para) {
 	-webkit-animation: $para;
 	animation: $para;
 }
- 
+
 @mixin breakpoint($device) {
-	@if ($mobileFirst) {
-		$mobile: "(min-width: 480px)";
-		$tablet: "(min-width: 768px)";
-		$desktop: "(min-width: 960px)";
- 
-		 @if $device == mobile {
-		 	@media #{$mobile} { @content; }
-		 }
+	@if ($mobile-first) {
+		$mobile: '(min-width: 480px)';
+		$tablet: '(min-width: 768px)';
+		$desktop: '(min-width: 960px)';
+
+		@if $device == mobile {
+			@media #{$mobile} { @content; }
+		}
 		@else if $device == tablet {
 			@media #{$tablet} { @content; }
 		}
 		@else if $device == desktop {
 			@media #{$desktop} { @content; }
 		}
-	}
-	@else {
-		$tablet: "(max-width: 767px)";
-		$mobile: "(max-width: 480px)";
- 
+	} @else {
+		$tablet: '(max-width: 767px)';
+		$mobile: '(max-width: 480px)';
+
 		@if $device == tablet {
 			@media #{$tablet} { @content; }
-		}
-		@else if $device == mobile {
+		} @else if $device == mobile {
 			@media #{$mobile} { @content; }
 		}
 	}
 }
- 
-@mixin column($cCount, $gap, $cWidth: "auto") {
-	-webkit-columns: $cWidth $cCount;
-	-moz-columns: $cWidth $cCount;
-	columns: $cWidth $cCount;
+
+@mixin column($column-count, $gap, $column-width: 'auto') {
+	-webkit-columns: $column-width $column-count;
+	-moz-columns: $column-width $column-count;
+	columns: $column-width $column-count;
 	-webkit-column-gap: $gap;
 	-moz-column-gap: $gap;
 	column-gap: $gap;
 }
- 
+
 @mixin keyframes($name) {
 	@-webkit-keyframes #{$name} {
-		@content; 
+		@content;
 	}
 	@keyframes #{$name} {
 		@content;
-	} 
+	}
 }
- 
+
 @mixin linear-gradient($start, $end, $angle: 180deg) {
 	background: linear-gradient($angle, $start, $end);
 }
- 
-@mixin multipleStates() {
+
+@mixin multiplestates() {
 	&:hover, &:focus, &:active {
 		@content;
 	}
 }
- 
+
 @mixin placeholder() {
 	::-webkit-input-placeholder {
 		@content;
@@ -86,9 +84,8 @@ $baseSize: 16px;
 	@each $value in $values {
 		@if $value == 0 or $value == auto {
 			$rem: append($rem, $value);
-		}
-		@else {
-			$rem: append($rem, ($value / $baseSize + rem));
+		} @else {
+			$rem: append($rem, ($value / $base-font-size + rem));
 		}
 	}
 
@@ -100,15 +97,13 @@ $baseSize: 16px;
 	height: $size;
 	border-radius: 50%;
 }
- 
+
 @mixin transform($action) {
-	-webkit-transform: $action;
-	-ms-transform: $action;
+	-webkit-transform: $action; // for Safari8.1
+	-ms-transform: $action; // for IE9
 	transform: $action;
 }
- 
+
 @mixin transition($duration, $timing: ease) {
-	// IE10+
-	-webkit-transition: all $duration;
 	transition: all $duration;
 }

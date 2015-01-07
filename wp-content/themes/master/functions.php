@@ -31,7 +31,7 @@ function login_scripts() {
 	echo '<link rel="stylesheet" type="text/css" href="/assets/css/login.css" />';
 }
 add_action('login_head', 'login_scripts');
- 
+
 function login_logo_url() {
 	// change to client's info if necessary
 	// return get_bloginfo('url');
